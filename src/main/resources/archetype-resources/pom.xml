@@ -11,8 +11,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <cucumber.version>6.9.0</cucumber.version>
     <junit.version>5.7.0</junit.version>
-    <webdrivermanager.version>4.2.2</webdrivermanager.version>
-    <selenium-java.version>4.0.0-rc-1</selenium-java.version>
+    <webdrivermanager.version>5.1.0</webdrivermanager.version>
+    <selenium-java.version>4.1.1</selenium-java.version>
     <logback.version>1.2.3</logback.version>
   </properties>
 
