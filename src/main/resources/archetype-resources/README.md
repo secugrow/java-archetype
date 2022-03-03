@@ -1,6 +1,6 @@
-# SecuGrow - Java
+# SecuGrow Java
 
-Selenium Cucumber Java Archetype
+Selenium Cucumber Java
 
 Sample Project for Selenium with Cucumber in Java (there is also a Kotlin Project on github from us)
 
@@ -34,9 +34,9 @@ If doing like this, the currentPage is set correctly, and you can access the pag
   mvn clean install
   ```  
   If build succeeds, we have a new archetype in our repository,
-  e.g.: `<path/to/your/maven/repository>/at/co/boris/SecuGrow-archetype/1.0-SNAPSHOT/Secugrow-archetype-1.0-SNAPSHOT.jar`
+  e.g.: `<path/to/your/maven/repository>/at/co/boris/SecuGrow-archetype/1.0-SNAPSHOT/SecuGrow-archetype-1.0-SNAPSHOT.jar`
 - cd into directory you want to start a project from the archetype and execute following command:
   ```shell
-  mvn archetype:generate -DarchetypeArtifactId=SecuGrow-java-archetype -DarchetypeGroupId=at.co.boris -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false
+  mvn archetype:generate -DarchetypeArtifactId=SecuGrow-archetype -DarchetypeGroupId=at.co.boris -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=at.some.test -DartifactId=secuavaTestArchetype -DinteractiveMode=false
   ```
 
