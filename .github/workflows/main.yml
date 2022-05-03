@@ -32,8 +32,10 @@ jobs:
       - name: Maven Build    
         run:  |
           mvn clean install archetype:update-local-catalog
-          mvn archetype:generate -DarchetypeArtifactId=SecuGrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=0.2-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false
-          
+          ls /home/runner/.m2/repository
+          cat /home/runner/.m2/repository/archetype-catalog.xml
+      - name: Generate Archetype    
+        run: mvn archetype:generate -DarchetypeArtifactId=SecuGrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=0.2-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false
 
 
       
