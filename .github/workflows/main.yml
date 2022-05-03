@@ -43,3 +43,13 @@ jobs:
         run: |
           pwd
           tree target
+      - name: Push to java-generated repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'target/secugrowTestArchetype'
+          destination-github-username: 'secugrow'
+          destination-repository-name: 'generated_java'
+          user-email: boris.wrubel@gmx.at
+          target-branch: main
