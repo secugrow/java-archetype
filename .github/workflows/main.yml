@@ -31,7 +31,8 @@ jobs:
           distribution: 'adopt'
       - name: Maven Build    
         run:  |
-          mvn clean install:update-local-catalog
+          mvn clean install
+          mvn install archetype:update-local-catalog
           mvn archetype:generate -DarchetypeArtifactId=SecuGrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=0.2-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false
           ls target
 
