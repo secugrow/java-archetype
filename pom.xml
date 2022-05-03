@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.secugrow</groupId>
-  <artifactId>Secugrow-java-archetype</artifactId>
+  <artifactId>secugrow-java-archetype</artifactId>
   <version>0.2-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
-  <name>Secugrow-java-archetype</name>
+  <name>SeCuGrow-java-archetype</name>
 
   <build>
     <extensions>
