@@ -35,7 +35,7 @@ jobs:
           ls /home/runner/.m2/repository
           cat /home/runner/.m2/repository/archetype-catalog.xml
       - name: Generate Archetype    
-        run: mvn archetype:generate -DarchetypeArtifactId=secugrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=0.2-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false
+        run: mvn archetype:generate -DarchetypeArtifactId=secugrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=0.2-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false -DoutputDirectory=target/java-generated
 
       
       - name: last step
