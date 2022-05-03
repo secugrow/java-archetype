@@ -17,8 +17,6 @@ public class RemoteWebDriverFactory extends WebDriverFactory {
         caps.setCapability("sessionTimeout", "10m");
         caps.setCapability("enableVNC", true);
         caps.setCapability("name", getBranchName());
-
-        //caps.setCapability("screenResolution", getScreenSizeAsString(screenDimension));
         caps.setCapability("timeZone", getModifiedTimeZone());
 
         if (videoRecording.equals("true")) {
@@ -27,8 +25,6 @@ public class RemoteWebDriverFactory extends WebDriverFactory {
             caps.setCapability("videoName", getVideoPrefix() + "${LocalDateTime.now()}.mp4");
             caps.setCapability("videoCodec", "mpeg4");
         }
-
-
     }
 
     private String getVideoPrefix() {
@@ -43,9 +39,5 @@ public class RemoteWebDriverFactory extends WebDriverFactory {
     String getBranchName(){
         return System.getProperty("testbranch", "debug_run");
     }
-
-//    private String getScreenSizeAsString(screenDimension: ScreenDimension, colordepth: Int = 24) {
-//        return "${screenDimension.dimension.width}x${screenDimension.dimension.height}x$colordepth";
-//    }
 
 }

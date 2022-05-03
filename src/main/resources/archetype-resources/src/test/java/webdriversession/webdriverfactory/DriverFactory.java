@@ -15,13 +15,10 @@ public class DriverFactory {
 
     public Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
     public static WebDriver createWebDriver(String sessionName) {
         WebDriver webDriver = null;
         String browserName = System.getProperty("browser", DriverType.CHROME.toString());
-
         DriverType driverType = DriverType.valueOf(browserName.toUpperCase(Locale.ROOT));
-
 
         switch (driverType) {
             case CHROME:

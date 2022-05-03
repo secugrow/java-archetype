@@ -5,7 +5,6 @@ package ${package}.webdriversession.webdriverfactory;
 
 public class AppiumDriverFactory extends WebDriverFactory{
 
-
     protected String getMobileDeviceId() {
         return System.getProperty("device.id","device.id is not set, set it with -Ddevice.id in your runConfig");
     }

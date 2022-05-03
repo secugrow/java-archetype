@@ -35,7 +35,6 @@ public class WebDriverSession {
     }
 
     public void close() {
-
         webDriver.quit();
         currentPage = null;
     }
@@ -59,7 +58,6 @@ public class WebDriverSession {
     public AbstractPage setCurrentPage(AbstractPage page) {
         this.previousPage = currentPage;
         this.currentPage = page;
-
         return page;
     }
 

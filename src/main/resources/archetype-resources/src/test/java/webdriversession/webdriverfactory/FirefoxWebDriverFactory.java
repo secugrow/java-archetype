@@ -12,18 +12,10 @@ public class FirefoxWebDriverFactory extends WebDriverFactory {
 
     WebDriver webDriver;
 
-        public WebDriver createDriver() {
-
+    public WebDriver createDriver() {
         WebDriverManager.firefoxdriver().driverVersion(super.getWebDriverVersion()).setup();
         FirefoxOptions options = new FirefoxOptions();
         options.setHeadless(false);
-
-        options.merge(caps);
-
-        this.webDriver = new FirefoxDriver(options);
-
-
-        return webDriver;
-
+        return new FirefoxDriver(options.merge(caps));
     }
 }

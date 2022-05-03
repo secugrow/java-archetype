@@ -24,15 +24,12 @@ public class ChromeDriverMobileEmulationFactory extends WebDriverFactory {
         ChromeOptions options = new ChromeOptions();
         options.setHeadless(false);
 
-
         Map<String, String> mobileEmulation = new HashMap<>();
         String deviceName = System.getProperty("emulated.device",  Pixel_2.phoneName);
         mobileEmulation.put("deviceName", deviceName);
         options.setExperimentalOption("mobileEmulation", mobileEmulation);
 
-        options.merge(caps);
-
-        this.webDriver = new ChromeDriver(options);
+        this.webDriver = new ChromeDriver(options.merge(caps));
 
 
         return webDriver;

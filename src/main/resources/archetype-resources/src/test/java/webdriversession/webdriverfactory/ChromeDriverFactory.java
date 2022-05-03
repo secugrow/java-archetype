@@ -10,19 +10,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeDriverFactory extends WebDriverFactory {
 
-    WebDriver webDriver;
-
-
     public WebDriver createDriver() {
-
         WebDriverManager.chromedriver().driverVersion(super.getWebDriverVersion()).setup();
         ChromeOptions options = new ChromeOptions();
         options.setHeadless(false);
-        options.merge(caps);
-        this.webDriver = new ChromeDriver(options);
-
-
-        return webDriver;
-
+        return new ChromeDriver(options.merge(caps));
     }
 }
