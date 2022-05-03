@@ -37,7 +37,14 @@ If doing like this, the currentPage is set correctly, and you can access the pag
   e.g.: `<path/to/your/maven/repository>/at/co/boris/SecuGrow-archetype/1.0-SNAPSHOT/Secugrow-archetype-1.0-SNAPSHOT.jar`
 - cd into directory you want to start a project from the archetype and execute following command:
   ```shell
-  mvn archetype:generate -DarchetypeArtifactId=secugrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=0.2-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false
+  mvn archetype:generate \
+      -DarchetypeArtifactId=secugrow-java-archetype \
+      -DarchetypeGroupId=io.secugrow \
+      -DarchetypeVersion=0.2-SNAPSHOT \
+      -DgroupId=at.some.test \
+      -DartifactId=secugrowTestArchetype \
+      -DinteractiveMode=false \
+      -DoutputDirectory=/some/where/onyourdisk
 
   ```
 
