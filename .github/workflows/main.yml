@@ -35,7 +35,7 @@ jobs:
           ls /home/runner/.m2/repository
           cat /home/runner/.m2/repository/archetype-catalog.xml
       - name: Generate Archetype    
-        run: mvn archetype:generate -DarchetypeArtifactId=secugrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=0.2-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false -DoutputDirectory=target/java-generated
+        run: mvn archetype:generate -DarchetypeArtifactId=secugrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=0.2-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false -DoutputDirectory=target/
 
       
       - name: last step
@@ -43,5 +43,5 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           pwd
-          ls /home/runner/work/java-archetype/target
+          ls /home/runner/work/java-archetype/java-archetype/target
           ls target
