@@ -1,8 +1,6 @@
-# This is a basic workflow to help you get started with Actions
+name: CI-CD
 
-name: CI
 
-# Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -13,9 +11,8 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
 jobs:
-  # This workflow contains a single job called "build"
   build-and-push:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -32,18 +29,11 @@ jobs:
       - name: Maven Build    
         run:  |
           mvn clean install archetype:update-local-catalog
-          ls /home/runner/.m2/repository
-          cat /home/runner/.m2/repository/archetype-catalog.xml
       - name: Generate Archetype    
         run: mvn archetype:generate -DarchetypeArtifactId=secugrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=0.2-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false -DoutputDirectory=target/
-
       - name: publish to maven-repo
         run: echo "Not implemented yet"
-      - name: show generated files
-        run: |
-          pwd
-          tree target
-      - name: Push to java-generated repository
+      - name: Push to generated-java repository
         uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
