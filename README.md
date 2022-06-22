@@ -1,50 +1,54 @@
-# SecuGrow - Java
+[![CI-CD](https://github.com/secugrow/java-archetype/actions/workflows/generate_archetype_output.yml/badge.svg?branch=main)](https://github.com/secugrow/java-archetype/actions/workflows/generate_archetype_output.yml)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.secugrow/secugrow-java-archetype/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.secugrow/secugrow-kotlin-archetype)
 
-Selenium Cucumber Java Archetype
 
-Sample Project for Selenium with Cucumber in Java (there is also a Kotlin Project on github from us)
+![SeCuGrow Logo](/docs/pics/SeCuGrow_Logo_300x150.png)
+# Let your Selenium Cucumber Project grow
+# Java Edition
 
-Running your tests just start with maven or your IDE (a sample RunConfig is in ressource Folder)
+### Looking for the documentation how to use it after generating an project from this archetype?
+[follow this link](src/main/resources/archetype-resources/README.md)
 
-Add more tests:
 
-* Write scenarios and features
-* Create new steps (group your steps and use lambda notation)
-* create PageObjects with page functions
+## How to generate a ready to start project with this archetype
 
-Usage Tips:
+This archetype will generate you a Selenium Cucumber Skeleton for your projects with your choosen packagenames
+A ready to use showcase ca be cloned/downloaded/forked from https://github.com/secugrow/generated-project.
 
-If you have actions which change the page your last stagement in your function should instantiate the new page like
-``` new PageObject(session);```
+### Installation
+Before being able to make use of the `archetype:generate` command, the project has to be built from its root directory
+via `mvn install`. This will result in a jar being copied to your local maven-repo.
 
-If doing like this, the currentPage is set correctly, and you can access the page in your step files with getPage(PageObject.class)
+OR
 
-## Building the archetype
+copy a jar from releases to your local maven repository in the correct path:
 
-- make sure you're in the root of the Project(where the pom.xml is located) and do:
-  ```shell
-  mvn archetype:create-from-project
-  ```
-- cd into
-  ```
-  target/generated-sources/archetype
-  ``` 
-- execute:
-  ```shell
-  mvn clean install
-  ```  
-  If build succeeds, we have a new archetype in our repository,
-  e.g.: `<path/to/your/maven/repository>/at/co/boris/SecuGrow-archetype/1.0-SNAPSHOT/Secugrow-archetype-1.0-SNAPSHOT.jar`
-- cd into directory you want to start a project from the archetype and execute following command:
-  ```shell
-  mvn archetype:generate \
-      -DarchetypeArtifactId=secugrow-java-archetype \
-      -DarchetypeGroupId=io.secugrow \
-      -DarchetypeVersion=0.2-SNAPSHOT \
-      -DgroupId=at.some.test \
-      -DartifactId=secugrowTestArchetype \
-      -DinteractiveMode=false \
-      -DoutputDirectory=/some/where/onyourdisk
+    <user dir, depens on your OS>/.m2/repository/io/secugrow/secugrow-java-archetype/<version>/secugrow-java-archetype-<version>.jar
 
-  ```
+OR
 
+using a release archetype from a maven repository
+
+You're all set - feel free to use the archetype.
+
+
+## Use this archetype to generate a project
+
+     mvn archetype:generate \  
+        -DarchetypeArtifactId=secugrow-java-archetype \
+        -DarchetypeGroupId=io.secugrow \
+        -DarchetypeVersion=0.3.0 \
+        -DgroupId=<your-group-id> \
+        -DartifactId=<your artifactid> \
+        -DinteractiveMode=false
+
+
+example
+
+     mvn archetype:generate \  
+        -DarchetypeArtifactId=secugrow-java-archetype \
+        -DarchetypeGroupId=io.secugrow\
+        -DarchetypeVersion=0.3.0 \
+        -DgroupId=io.secugrow.demo \
+        -DartifactId=fromArchetype \
+        -DinteractiveMode=false
