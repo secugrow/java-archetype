@@ -12,7 +12,7 @@
     <cucumber.version>7.2.3</cucumber.version>
     <webdrivermanager.version>5.2.0</webdrivermanager.version>
     <selenium-java.version>4.2.2</selenium-java.version>
-    <logback.version>1.2.3</logback.version>
+    <logback.version>1.2.11</logback.version>
   </properties>
 
   <dependencies>
