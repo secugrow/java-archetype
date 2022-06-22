@@ -45,4 +45,4 @@ jobs:
           destination-repository-name: 'generated_java'
           user-email: 'boris.wrubel@gmx.at'
           user-name: 'boris779'
-          target-branch: env.BRANCH
+          target-branch: main
