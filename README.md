@@ -1,4 +1,4 @@
-[![CI-CD](https://github.com/secugrow/java-archetype/actions/workflows/generate_archetype_output.yml/badge.svg?branch=main)](https://github.com/secugrow/java-archetype/actions/workflows/generate_archetype_output.yml)
+[![Automatic Generation](https://github.com/secugrow/java-archetype/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/secugrow/java-archetype/actions/workflows/generate_archetype_output.yml)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.secugrow/secugrow-java-archetype/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.secugrow/secugrow-kotlin-archetype)
 
 
