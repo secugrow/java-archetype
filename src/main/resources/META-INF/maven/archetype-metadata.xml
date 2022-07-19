@@ -21,11 +21,11 @@
         <include>**/*.feature</include>
       </includes>
     </fileSet>
-    <fileSet encoding="UTF-8">
+    <fileSet encoding="UTF-8" filtered="true">
       <directory></directory>
       <includes>
+        <include>gitignore</include>
         <include>README.md</include>
-        <include>.gitignore</include>
         <include>LICENSE</include>
       </includes>
     </fileSet>
