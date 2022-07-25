@@ -30,19 +30,27 @@ public class TestDataContainer {
     }
 
     public String getTestId() {
-        return String.valueOf(testDataMap.get(Keys.TEST_ID.getKeyValue()));
+        return getAs(Keys.TEST_ID.getKeyValue(), String.class);
+    }
+
+    public <T> T getAs(String key, Class<T> type) {
+        if (testDataMap.containsKey(key)) {
+            return type.cast(testDataMap.get(key));
+        } else {
+            throw new IllegalArgumentException("given key: " + key + " not available in testDataMap");
+        }
     }
 
     public String getTestDataAsString(String key) {
-        return String.valueOf(testDataMap.get(key));
+        return getAs(key, String.class);
     }
 
-    public int getTestDataAsInt(String key) {
-        return Integer.parseInt(String.valueOf(testDataMap.get(key)));
+    public Integer getTestDataAsInt(String key) {
+        return getAs(key, Integer.class);
     }
 
     public String getBaseUrl() {
-        return String.valueOf(testDataMap.get(Keys.BASEURL.getKeyValue()));
+        return getAs(Keys.BASEURL.getKeyValue(), String.class);
     }
 
     public void setTestDataString(String key, String stringValue) {
