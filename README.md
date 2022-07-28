@@ -37,7 +37,7 @@ You're all set - feel free to use the archetype.
      mvn archetype:generate \  
         -DarchetypeArtifactId=secugrow-java-archetype \
         -DarchetypeGroupId=io.secugrow \
-        -DarchetypeVersion=0.3.0 \
+        -DarchetypeVersion=1.4.0 \
         -DgroupId=<your-group-id> \
         -DartifactId=<your artifactid> \
         -DinteractiveMode=false
@@ -47,8 +47,8 @@ example
 
      mvn archetype:generate \  
         -DarchetypeArtifactId=secugrow-java-archetype \
-        -DarchetypeGroupId=io.secugrow\
-        -DarchetypeVersion=0.3.0 \
+        -DarchetypeGroupId=io.secugrow \
+        -DarchetypeVersion=1.4.0 \
         -DgroupId=io.secugrow.demo \
         -DartifactId=fromArchetype \
         -DinteractiveMode=false

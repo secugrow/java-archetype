@@ -4,14 +4,14 @@
 
   <groupId>io.secugrow</groupId>
   <artifactId>secugrow-java-archetype</artifactId>
-  <version>0.4-SNAPSHOT</version>
+  <version>1.4.0-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
   <name>SeCuGrow-java-archetype</name>
 
   <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>15</maven.compiler.source>
+    <maven.compiler.target>15</maven.compiler.target>
   </properties>
 
   <build>
