@@ -19,6 +19,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Set env.BRANCH
+        run: echo "BRANCH=$(echo $GITHUB_REF | cut -d'/' -f 3)" >> $GITHUB_ENV
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Setup JDK 17
@@ -30,7 +32,7 @@ jobs:
         run:  |
           mvn clean install archetype:update-local-catalog
       - name: Generate Archetype    
-        run: mvn archetype:generate -DarchetypeArtifactId=secugrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=0.2-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false -DoutputDirectory=target/
+        run: mvn archetype:generate -DarchetypeArtifactId=secugrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=0.4-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false -DoutputDirectory=target/
       - name: publish to maven-repo
         run: echo "Not implemented yet"
       - name: Push to generated-java repository
