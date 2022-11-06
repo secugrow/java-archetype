@@ -66,8 +66,11 @@ public class WebDriverSession {
         return currentPage;
     }
 
-    public Boolean isMobile() {
+ /*   public Boolean isMobile() {
         return ((RemoteWebDriver) webDriver).isMobile();
     }
+
+
+  */
 
 }

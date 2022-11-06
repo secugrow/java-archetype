@@ -7,33 +7,21 @@ import org.openqa.selenium.WebDriver;
 
 public class A11yHelper {
 
-    /*
 
-    companion object {
+    public static List<Rule> hasAccessibilityIssues(WebDriver driver, List<String> a11yExclusions) {
+        List<String> ruleSet = List.of("wcag2a", "wcag2aa", "wcag21a", "wcag21aa");
 
-        private val log by logger()
+        AxeBuilder axeRunner = new AxeBuilder()
+                .withOptions(new AxeRunOptions())
+                .withTags(ruleSet)
+                .disableRules(a11yExclusions);
+        List<Rule> violations = axeRunner.analyze(driver).getViolations();
 
-        fun hasAccessibilityIssues(driver: WebDriver?, a11yExclusions: List<String>): List<Rule> {
-            var violations: List<Rule>
-            val ruleSet = listOf("wcag2a", "wcag2aa", "wcag21a", "wcag21aa")
-            measureTimeMillis {
 
-                val axeRunner = AxeBuilder()
-                        .withOptions(AxeRunOptions())
-                        .withTags(ruleSet)
-                        .disableRules(a11yExclusions)
-                violations = axeRunner.analyze(driver).violations
-            }.also { log.debug("AXE took $it ms") }
-
-            return if (violations.isNotEmpty()) {
-                violations
-            } else {
-                emptyList()
-            }
+        if (violations.isEmpty()) {
+            return Collections.emptyList();
+        } else {
+            return violations;
         }
-
     }
-
-
-     */
 }
