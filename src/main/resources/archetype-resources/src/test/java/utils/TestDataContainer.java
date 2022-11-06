@@ -8,6 +8,7 @@ import io.cucumber.java8.Scenario;
 import org.apache.commons.lang3.tuple.Pair;
 import org.assertj.core.api.SoftAssertions;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -89,13 +90,13 @@ public class TestDataContainer {
         return getTestDataAsString("session.id");
     }
 
-    public List<Pair<byte[], String>> getScreenshots() {
+    public ArrayList<Pair<byte[], String>> getScreenshots() {
 
         if (testDataMap.containsKey(Keys.SCREENSHOTS)) {
-            return getAs(Keys.SCREENSHOTS.key, List.class);
+            return getAs(Keys.SCREENSHOTS.key, ArrayList.class);
 
         } else {
-            return Collections.emptyList();
+            return new ArrayList<>();
         }
     }
 
@@ -145,7 +146,7 @@ public class TestDataContainer {
 
 
     public void addScreenshot(byte[] screenshot, String description) {
-        List<Pair<byte[], String>> screenshots = getScreenshots();
+        ArrayList<Pair<byte[], String>> screenshots = getScreenshots();
         screenshots.add(Pair.of(screenshot, description));
         setScreenshots(Keys.SCREENSHOTS, screenshots);
     }
@@ -165,12 +166,14 @@ public class TestDataContainer {
 
     private void addStringtoList(String key, String stringToAdd) {
         if (testDataMap.containsKey(key)) {
-            List<String> list = getAs(key, List.class);
+            ArrayList<String> list = getAs(key, ArrayList.class);
             list.add(stringToAdd);
             testDataMap.put(key, list);
         }
         else {
-            setTestDataList(key, List.of(stringToAdd));
+            ArrayList<String> newList = new ArrayList<>();
+            newList.add(stringToAdd);
+            setTestDataList(key, newList);
         }
     }
 

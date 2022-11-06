@@ -27,6 +27,7 @@ import ${package}.a11y.A11yHelper;
 import org.assertj.core.api.SoftAssertions;
 import org.assertj.core.description.TextDescription;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
 import java.util.Collections;
@@ -65,7 +66,7 @@ public abstract class AbstractStepDefs implements En {
             testDataContainer.setTestDataBoolean(Keys.SOFTASSERTIONS_ACTIVE, !skipA11Y);
 
             if (!skipA11Y) {
-                testDataContainer.setTestDataList("a11y.description", Collections.emptyList());
+                testDataContainer.setTestDataList("a11y.description", new ArrayList<>());
             }
             //a11y-end
 
