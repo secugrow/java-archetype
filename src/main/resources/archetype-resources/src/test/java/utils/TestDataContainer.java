@@ -134,7 +134,7 @@ public class TestDataContainer {
 
     public void addScreenshot(byte[] screenshot, String description) {
         List<Pair<byte[], String>> screenshots = getScreenshots();
-        screenshots.add(new Pair(screenshot, description));
+        screenshots.add(Pair.of(screenshot, description));
         setScreenshots(Keys.SCREENSHOTS, screenshots);
     }
 
