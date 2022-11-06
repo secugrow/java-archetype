@@ -1,12 +1,13 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
+#set($symbol_pound='#')
+#set($symbol_dollar='$')
+#set($symbol_escape='\' )
 package ${package}.webdriversession;
 
 import ${package}.pageobjects.AbstractPage;
 import ${package}.webdriversession.webdriverfactory.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Optional;
@@ -64,4 +65,9 @@ public class WebDriverSession {
     public AbstractPage getCurrentPage() {
         return currentPage;
     }
+
+    public Boolean isMobile() {
+        return ((RemoteWebDriver) webDriver).isMobile();
+    }
+
 }
