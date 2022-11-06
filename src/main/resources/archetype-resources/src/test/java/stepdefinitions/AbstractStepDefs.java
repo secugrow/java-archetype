@@ -68,6 +68,29 @@ public abstract class AbstractStepDefs implements En {
             }
             //a11y-end
 
+            // to check if it runs on Jenkins or local
+            val jobname = System.getenv("JOB_NAME")
+
+            //Do Database resets here
+
+            if (jobname != null) {
+                testDataContainer.setTestData("localRun", false);
+                logger.info(
+                        StringUtils.leftPad("JENKINS INFOS: ", debuglength, fillchar) + "\n" +
+                                String.format("BUILD_NUMBER: %s", System.getProperty("BUILD_NUMBER")) + "\n" +
+                                StringUtils.leftPad("# BUILD_NUMBER:" + System.getenv("BUILD_NUMBER"), debuglength, fillchar) + "\n" +
+                                StringUtils.leftPad("# JOB_NAME: " + System.getenv("JOB_NAME"), debuglength, fillchar) + "\n" +
+                                StringUtils.leftPad("# JENKINS_URL: " + System.getenv("JENKINS_URL"), debuglength, fillchar) + "\n" +
+                                StringUtils.leftPad("# WORKSPACE: " + System.getenv("WORKSPACE"), debuglength, fillchar) + "\n" +
+                                StringUtils.leftPad("# NODE_NAME: " + System.getenv("NODE_NAME"), debuglength, fillchar) + "\n" +
+                                StringUtils.leftPad(fillchar, debuglength, fillchar)
+                );
+
+            } else {
+                testDataContainer.setTestData("localRun", true);
+            }
+
+
 
             logger.debug(StringUtils.leftPad(fillchar, debuglength, fillchar));
             logger.debug(StringUtils.leftPad("# executing Scenario: " +  scenario.getName(), debuglength, fillchar));
