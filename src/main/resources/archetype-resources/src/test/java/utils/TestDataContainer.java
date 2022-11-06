@@ -19,7 +19,9 @@ public class TestDataContainer {
         TEST_ID("testId"),
         SCREENSHOTS("screenshots"),
         LOCALRUN("localRun"),
+        //a11y-start
         SKIP_A11Y("skipA11y"),
+        //a11y-end
         INITIALIZED("initialized"),
         STEP_INDEX("stepIndex"),
         SOFTASSERTIONS_ACTIVE("softAssertions.present");
@@ -164,7 +166,7 @@ public class TestDataContainer {
 
 
 
-
+    //a11y-start
     /*
     Missing features from kotlin archetype
 
@@ -198,13 +200,8 @@ public class TestDataContainer {
             false -> return emptyList()
         }
     }
-    //a11y-end
-
-
-
 
 }
-
-
      */
+    //a11y-end
 }

@@ -40,7 +40,9 @@ public abstract class AbstractStepDefs implements En {
     public Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private TestDataContainer testDataContainer;
+    //a11y-start
     private boolean skipA11Y = System.getProperty("skipA11y", "true").equalsIgnoreCase("true");
+    //a11y-end
 
     public AbstractStepDefs(TestDataContainer tdc) {
         logger.info("Constructor AbstractStepDefs");
