@@ -4,13 +4,17 @@
 package ${package}.utils;
 
 import ${package}.webdriversession.webdriverfactory.DriverType;
-import io.cucumber.java.Scenario;
+import io.cucumber.java8.Scenario;
 import org.apache.commons.lang3.tuple.Pair;
 import org.assertj.core.api.SoftAssertions;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static org.assertj.core.api.Fail.fail;
 
 public class TestDataContainer {
 
@@ -24,7 +28,8 @@ public class TestDataContainer {
         //a11y-end
         INITIALIZED("initialized"),
         STEP_INDEX("stepIndex"),
-        SOFTASSERTIONS_ACTIVE("softAssertions.present");
+        SOFTASSERTIONS_ACTIVE("softAssertions.present"),
+        SCENARIO("scenario");
 
         private final String key;
 
@@ -46,6 +51,11 @@ public class TestDataContainer {
 
     public String getTestId() {
         return getAs(Keys.TEST_ID.getKeyValue(), String.class);
+    }
+
+    public void setScenario(Scenario scenario) {
+        testDataMap.put(Keys.SCENARIO.key, scenario);
+        testDataMap.put(Keys.TEST_ID.key, extractTestIdFromScenarioName(scenario));
     }
 
     //a11y-start
@@ -162,6 +172,21 @@ public class TestDataContainer {
         else {
             setTestDataList(key, List.of(stringToAdd));
         }
+    }
+
+    private String extractTestIdFromScenarioName(Scenario scenario) {
+        Pattern regex = Pattern.compile("^\\[(.*?) ");
+        Matcher matcher = regex.matcher(scenario.getName());
+
+        try {
+            if (matcher.find()) {
+                return matcher.group(1);
+            }
+
+        } catch (NullPointerException npe) {
+            fail("Scenarioname is not correct formated $scenarioName. Pattern: '[XXX-99 [Filename]");
+        }
+        return "invalid Scenarioname Pattern";
     }
 
 

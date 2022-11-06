@@ -4,7 +4,7 @@
 package ${package}.stepdefinitions;
 
 import com.deque.html.axecore.results.Rule;
-import io.cucumber.java.Scenario;
+import io.cucumber.java8.Scenario;
 import ${package}.pageobjects.AbstractPage;
 import ${package}.pageobjects.MainPage;
 import ${package}.pageobjects.PageNotFoundException;
@@ -26,8 +26,6 @@ import ${package}.a11y.A11yHelper;
 //a11y-end
 import org.assertj.core.api.SoftAssertions;
 import org.assertj.core.description.TextDescription;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 
 import java.util.List;
 import java.io.File;
@@ -52,9 +50,10 @@ public abstract class AbstractStepDefs implements En {
 
 
         Before(scenario -> {
-            logger.info("Before All Once");
+            logger.info("Before Scenario");
             testDataContainer.setTestDataString(Keys.BASEURL, System.getProperty(Keys.BASEURL.getKeyValue(), "baseUrl is not set, please add to your commandline '-DbaseUrl=yourvalue or add to your runConfigurtaion"));
             String scenarioID = scenario.getName();
+            testDataContainer.setScenario(scenario);
             testDataContainer.setTestDataString(Keys.TEST_ID, scenarioID);
             testDataContainer.setTestDataBrowserType(DriverType.valueOf(System.getProperty("browser", "no browser set").toUpperCase()));
             testDataContainer.setTestDataString("browser.version", System.getProperty("browser.version", "no version set"));
