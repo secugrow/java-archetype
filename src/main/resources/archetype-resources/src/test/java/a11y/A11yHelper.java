@@ -5,6 +5,8 @@ import com.deque.html.axecore.results.Rule;
 import com.deque.html.axecore.selenium.AxeBuilder;
 import org.openqa.selenium.WebDriver;
 
+import java.util.List;
+
 public class A11yHelper {
 
 
