@@ -32,7 +32,7 @@ jobs:
         run:  |
           mvn clean install archetype:update-local-catalog
       - name: Generate Archetype    
-        run: mvn archetype:generate -DarchetypeArtifactId=secugrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=1.5.0-SNAPSHOT -DgroupId=io.secugrow.demo -DartifactId=secugrowTestArchetype -DinteractiveMode=false -DoutputDirectory=target/
+        run: mvn archetype:generate -DarchetypeArtifactId=secugrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=1.7.0-SNAPSHOT -DgroupId=io.secugrow.demo -DartifactId=secugrowTestArchetype -DinteractiveMode=false -DoutputDirectory=target/
       - name: publish to maven-repo
         run: echo "Not implemented yet"
       - name: Push to generated-java repository
