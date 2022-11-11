@@ -11,8 +11,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <cucumber.version>7.2.3</cucumber.version>
     <webdrivermanager.version>5.2.0</webdrivermanager.version>
-    <selenium-java.version>4.2.2</selenium-java.version>
+    <selenium-java.version>4.3.0</selenium-java.version>
     <logback.version>1.2.11</logback.version>
+    <axe-core.version>4.4.1</axe-core.version>
+    <assertj.version>3.23.1</assertj.version>
   </properties>
 
   <dependencies>
@@ -50,6 +52,17 @@
       <artifactId>webdrivermanager</artifactId>
       <version>${webdrivermanager.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.deque.html.axe-core</groupId>
+      <artifactId>selenium</artifactId>
+      <version>${axe-core.version}</version>
     </dependency>
     <!-- ::: LOGGING ::: -->
     <dependency>
