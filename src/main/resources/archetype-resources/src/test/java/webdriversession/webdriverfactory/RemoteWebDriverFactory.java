@@ -6,6 +6,8 @@ package ${package}.webdriversession.webdriverfactory;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 
+import java.util.Map;
+
 public class RemoteWebDriverFactory extends WebDriverFactory {
 
     WebDriver webDriver;
@@ -18,6 +20,19 @@ public class RemoteWebDriverFactory extends WebDriverFactory {
         caps.setCapability("enableVNC", true);
         caps.setCapability("name", getBranchName());
         caps.setCapability("timeZone", getModifiedTimeZone());
+
+        String providerName = System.getProperty("remote.options", "selenoid");
+        String executionTag = System.getProperty("execution.tag", "exection.tag not set");
+
+        Map<String, Object> providerOptions() = Map<String, Object>of(
+                "name", executionTag,
+                "enableVNC", true
+                //FIXME more are missing here
+        );
+
+        caps.setCapability(providerName + ":options", providerOptions);
+
+
 
         if (videoRecording.equals("true")) {
             //log.info("Video recording is enabled");

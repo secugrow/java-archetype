@@ -53,9 +53,7 @@ public abstract class AbstractStepDefs implements En {
         Before(scenario -> {
             logger.info("Before Scenario");
             testDataContainer.setTestDataString(Keys.BASEURL, System.getProperty(Keys.BASEURL.getKeyValue(), "baseUrl is not set, please add to your commandline '-DbaseUrl=yourvalue or add to your runConfigurtaion"));
-            String scenarioID = scenario.getName();
             testDataContainer.setScenario(scenario);
-            testDataContainer.setTestDataString(Keys.TEST_ID, scenarioID);
             testDataContainer.setTestDataBrowserType(DriverType.valueOf(System.getProperty("browser", "no browser set").toUpperCase()));
             testDataContainer.setTestDataString("browser.version", System.getProperty("browser.version", "no version set"));
             testDataContainer.setTestDataBoolean(Keys.INITIALIZED, false);
@@ -109,7 +107,7 @@ public abstract class AbstractStepDefs implements En {
 
         AfterStep(scenario -> {
             if (scenario.isFailed()) {
-                logger.info("AfterStep");
+                logger.info("AfterStep Error Handling");
             }
         });
 

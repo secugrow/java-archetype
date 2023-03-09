@@ -22,7 +22,7 @@ public class WebDriverSessionStore {
         return sessionStore.get(sessionKey);
     }
 
-    public static WebDriverSession getIfExists(String key) {
+    public static synchronized WebDriverSession getIfExists(String key) {
 
         if (sessionStore.containsKey(key)) {
             return sessionStore.get(key);
@@ -30,7 +30,7 @@ public class WebDriverSessionStore {
         return null;
     }
 
-    public static void closeAll() {
+    public static synchronized void closeAll() {
         sessionStore.entrySet().stream().parallel().forEach(entry -> entry.getValue().close());
     }
 }

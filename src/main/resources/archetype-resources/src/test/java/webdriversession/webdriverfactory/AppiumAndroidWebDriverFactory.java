@@ -29,21 +29,17 @@ public class AppiumAndroidWebDriverFactory extends AppiumDriverFactory {
         chromeOptions.setExperimentalOption("w3c", false);
 
         caps.setCapability("chromedriverExecutableDir", path2chromeDriver.substring(0,path2chromeDriver.lastIndexOf(File.separator)));
-        //caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
-        //caps.setCapability("noReset", false);
         caps.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium_Android_Device");
         caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-        //caps.setCapability(MobileCapabilityType.PLATFORM_VERSION);
 
         caps.setCapability(MobileCapabilityType.UDID, getMobileDeviceId());
-        //caps.setCapability("allowInvisibleElements", true)
         String appiumServerString = super.getSeleniumGrid();
 
         try {
             URL appiumServer = new URL(appiumServerString + "/wd/hub");
-            webDriver = new AndroidDriver<>(appiumServer, caps);
+            webDriver = new AndroidDriver(appiumServer, caps);
         } catch (WebDriverException e) {
             fail("Appium error: " + appiumServerString + " exception message: " + e + " ::: Appium started?");
         } catch (MalformedURLException malformedURLException) {
@@ -53,8 +49,7 @@ public class AppiumAndroidWebDriverFactory extends AppiumDriverFactory {
 
     }
 
-    private void fail(String s) {
-    }
+
 }
 
 

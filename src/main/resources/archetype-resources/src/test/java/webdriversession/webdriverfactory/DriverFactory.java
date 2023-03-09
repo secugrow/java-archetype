@@ -30,9 +30,6 @@ public class DriverFactory {
             case FIREFOX:
                 webDriver = new FirefoxWebDriverFactory().createDriver();
                 break;
-            case OPERA:
-                fail("not implemented yet");
-                break;
             case EDGE:
                 fail("not implemented yet");
                 break;
@@ -43,7 +40,7 @@ public class DriverFactory {
                 webDriver = new RemoteChromeDriverFactory().createDriver();
                 break;
             case REMOTE_FIREFOX:
-                fail("not implemented yet");
+                webDriver = new RemoteFirefoxDriverFactory().createDriver();
                 break;
             case REMOTE_ANDROID:
                 fail("not implemented yet");

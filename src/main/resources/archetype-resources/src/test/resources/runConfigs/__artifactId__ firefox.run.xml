@@ -3,6 +3,9 @@
 #set( $symbol_escape = '\' )
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="${artifactId} firefox" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+    <envs>
+      <env name="TMPDIR" value="$USER_HOME$/TMP_FIREFOX" />
+    </envs>
     <option name="FILE_PATH" value="${symbol_dollar}PROJECT_DIR${symbol_dollar}/src/test/resources/features" />
     <option name="GLUE" value="${package}.stepdefinitions" />
     <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
