@@ -4,7 +4,6 @@
 package ${package}.webdriversession.webdriverfactory;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +13,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import static org.assertj.core.api.Assertions.fail;
 
 public class AppiumAndroidWebDriverFactory extends AppiumDriverFactory {
 
