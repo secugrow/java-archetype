@@ -14,6 +14,7 @@ public class ChromeDriverFactory extends WebDriverFactory {
         WebDriverManager.chromedriver().driverVersion(super.getWebDriverVersion()).setup();
         ChromeOptions options = new ChromeOptions();
         options.setHeadless(false);
+        options.addArguments("--remote-allow-origins=*")
         return new ChromeDriver(options.merge(caps));
     }
 }
