@@ -20,9 +20,7 @@ public class ChromeDriverMobileEmulationFactory extends WebDriverFactory {
 
     public WebDriver createDriver() {
 
-        WebDriverManager.chromedriver().driverVersion(super.getWebDriverVersion()).setup();
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(false);
 
         Map<String, String> mobileEmulation = new HashMap<>();
         String deviceName = System.getProperty("emulated.device",  Pixel_2.phoneName);

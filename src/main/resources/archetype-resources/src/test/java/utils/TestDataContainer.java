@@ -9,7 +9,6 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.assertj.core.api.SoftAssertions;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;

@@ -15,7 +15,6 @@ public class FirefoxWebDriverFactory extends WebDriverFactory {
     public WebDriver createDriver() {
         WebDriverManager.firefoxdriver().driverVersion(super.getWebDriverVersion()).setup();
         FirefoxOptions options = new FirefoxOptions();
-        options.setHeadless(false);
         return new FirefoxDriver(options.merge(caps));
     }
 }

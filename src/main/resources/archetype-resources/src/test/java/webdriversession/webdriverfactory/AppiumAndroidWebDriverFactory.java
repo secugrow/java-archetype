@@ -4,15 +4,17 @@
 package ${package}.webdriversession.webdriverfactory;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import io.appium.java_client.android.options.UiAutomator2Options;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.fail;
 
@@ -22,29 +24,29 @@ public class AppiumAndroidWebDriverFactory extends AppiumDriverFactory {
 
     public WebDriver createDriver() {
 
-        WebDriverManager.chromedriver().driverVersion(super.getWebDriverVersion()).setup();
-        String path2chromeDriver = WebDriverManager.chromedriver().getDownloadedDriverPath();
+        UiAutomator2Options uiAutomator2Options = new UiAutomator2Options();
+        uiAutomator2Options.setUdid(getMobileDeviceId());;
+        uiAutomator2Options.setAutomationName("UiAutomator2");
+        uiAutomator2Options.setPlatformName("Android");
+        uiAutomator2Options.setDeviceName("Appium_Android_Device");
+        uiAutomator2Options.withBrowserName("chrome");
+        uiAutomator2Options.setNoReset(true);
+        uiAutomator2Options.setCapability(
+                "chomeOptions", Map.of(
+                        "args", List.of("disable-extensions", "--no-sandbox"),
+                        "w3c" ,false
+                )
+        );
 
-
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setExperimentalOption("w3c", false);
-
-        caps.setCapability("chromedriverExecutableDir", path2chromeDriver.substring(0,path2chromeDriver.lastIndexOf(File.separator)));
-        caps.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-        caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium_Android_Device");
-        caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-
-        caps.setCapability(MobileCapabilityType.UDID, getMobileDeviceId());
         String appiumServerString = super.getSeleniumGrid();
 
         try {
-            URL appiumServer = new URL(appiumServerString + "/wd/hub");
+            URL appiumServer = new URI(appiumServerString + "/wd/hub").toURL();
             webDriver = new AndroidDriver(appiumServer, caps);
         } catch (WebDriverException e) {
             fail("Appium error: " + appiumServerString + " exception message: " + e + " ::: Appium started?");
-        } catch (MalformedURLException malformedURLException) {
-            fail ("URL for AppiumServer is malformed " + appiumServerString + "${symbol_escape}n " + malformedURLException);
+        } catch (MalformedURLException | URISyntaxException uriException) {
+            fail("URL for AppiumServer is malformed " + appiumServerString + "\n " + uriException);
         }
         return webDriver;
 

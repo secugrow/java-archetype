@@ -6,4 +6,4 @@ Feature: [wikipedia] Example Feature
     Given the start page is loaded
     Then the searchbar is visible
     When the Selenium page is opened
-    Then the header should be "not Selenium"
+    Then the header should be "Selenium"

@@ -22,14 +22,14 @@ public class RemoteChromeDriverFactory extends RemoteWebDriverFactory {
 
         this.setBasicCaps();
 
-        HashMap chromePrefs = new HashMap();
+        HashMap<String, Object> chromePrefs = new HashMap<>();
         chromePrefs.put("plugins.always_open_pdf_externally", true);
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", chromePrefs);
 
         options.setCapability(CapabilityType.BROWSER_NAME, "chrome");
-        options.setCapability(CapabilityType.BROWSER_VERSION, getBrowserVersion());
-        options.setCapability(CapabilityType.PLATFORM_NAME, Platform.LINUX);
+        options.setBrowserVersion(getBrowserVersion());
+        options.setPlatformName(Platform.LINUX.toString());
 
         URL gridServer = null;
         try {
