@@ -5,7 +5,7 @@
 
   <groupId>io.secugrow</groupId>
   <artifactId>secugrow-java-archetype</artifactId>
-  <version>1.8.0-snapshot</version>
+  <version>1.9.0-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
   <name>secugrow-java-archetype</name>
@@ -41,8 +41,8 @@
       <organizationUrl>https://secugrow.io</organizationUrl>
     </developer>
     <developer>
-      <name>Adi Musilek</name>
-      <email>adi@secugrow.io</email>
+      <name>Christian Musilek</name>
+      <email>christian@secugrow.io</email>
     </developer>
   </developers>
 
@@ -53,11 +53,9 @@
   </scm>
 
   <properties>
-    <maven.compiler.source>15</maven.compiler.source>
-    <maven.compiler.target>15</maven.compiler.target>
-    <archetype-packaging.version>3.1.2</archetype-packaging.version>
-    <maven.compiler.source>15</maven.compiler.source>
-    <maven.compiler.target>15</maven.compiler.target>
+    <maven.compiler.source>20</maven.compiler.source>
+    <maven.compiler.target>20</maven.compiler.target>
+    <archetype-packaging.version>3.2.0</archetype-packaging.version>
   </properties>
 
   <dependencies>
