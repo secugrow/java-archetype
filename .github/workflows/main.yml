@@ -23,16 +23,16 @@ jobs:
         run: echo "BRANCH=$(echo $GITHUB_REF | cut -d'/' -f 3)" >> $GITHUB_ENV
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: Setup JDK 17
+      - name: Setup JDK 20
         uses: actions/setup-java@v3
         with: 
-          java-version: '17'
+          java-version: '20'
           distribution: 'adopt'
       - name: Maven Build    
         run:  |
           mvn clean install archetype:update-local-catalog
       - name: Generate Archetype    
-        run: mvn archetype:generate -DarchetypeArtifactId=secugrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=1.8.0-SNAPSHOT -DgroupId=io.secugrow.demo -DartifactId=secugrowTestArchetype -DinteractiveMode=false -DoutputDirectory=target/
+        run: mvn archetype:generate -DarchetypeArtifactId=secugrow-java-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=1.10.0-SNAPSHOT -DgroupId=io.secugrow.demo -DartifactId=secugrowTestArchetype -DinteractiveMode=false -DoutputDirectory=target/
       - name: publish to maven-repo
         run: echo "Not implemented yet"
       - name: Push to generated-java repository
