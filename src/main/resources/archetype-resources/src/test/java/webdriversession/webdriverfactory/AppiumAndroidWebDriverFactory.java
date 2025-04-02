@@ -41,8 +41,8 @@ public class AppiumAndroidWebDriverFactory extends AppiumDriverFactory {
         String appiumServerString = super.getSeleniumGrid();
 
         try {
-            URL appiumServer = new URI(appiumServerString + "/wd/hub").toURL();
-            webDriver = new AndroidDriver(appiumServer, caps);
+            URL appiumServer = new URI(appiumServerString).toURL();
+            webDriver = new AndroidDriver(appiumServer, uiAutomator2Options);
         } catch (WebDriverException e) {
             fail("Appium error: " + appiumServerString + " exception message: " + e + " ::: Appium started?");
         } catch (MalformedURLException | URISyntaxException uriException) {
