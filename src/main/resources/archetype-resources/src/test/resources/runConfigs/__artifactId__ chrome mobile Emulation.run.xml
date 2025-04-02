@@ -8,7 +8,7 @@
     <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
     <module name="${artifactId}" />
     <option name="PROGRAM_PARAMETERS" value="--plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm4SMFormatter --tags @boris --plugin &quot;json:target/cucumber-report/json/report.json&quot; --plugin &quot;html:target/cucumber-report/html/report.html&quot;" />
-    <option name="VM_PARAMETERS" value="-Dbrowser=&quot;chrome_mobile_emulation&quot; -DbaseURL=&quot;http://www.wikipedia.at&quot;" />
+    <option name="VM_PARAMETERS" value="-Dbrowser=&quot;chrome_mobile_emulation&quot; -DbaseURL=&quot;http://www.wikipedia.org&quot;" />
     <option name="WORKING_DIRECTORY" value="${symbol_dollar}MODULE_WORKING_DIR${symbol_dollar}" />
     <method v="2">
       <option name="Make" enabled="true" />

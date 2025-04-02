@@ -52,7 +52,7 @@ public abstract class AbstractStepDefs implements En {
 
         Before(scenario -> {
             logger.info("Before Scenario");
-            testDataContainer.setTestDataString(Keys.BASEURL, System.getProperty(Keys.BASEURL.getKeyValue(), "baseUrl is not set, please add to your commandline '-DbaseUrl=yourvalue or add to your runConfigurtaion"));
+            testDataContainer.setTestDataString(Keys.BASEURL, System.getProperty(Keys.BASEURL.getKeyValue(), "baseURL is not set, please add to your commandline '-DbaseURL=yourvalue or add to your runConfigurtaion"));
             testDataContainer.setScenario(scenario);
             testDataContainer.setTestDataBrowserType(DriverType.valueOf(System.getProperty("browser", "no browser set").toUpperCase()));
             testDataContainer.setTestDataString("browser.version", System.getProperty("browser.version", "no version set"));

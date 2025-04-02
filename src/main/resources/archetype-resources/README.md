@@ -27,7 +27,7 @@ from [Boni Garcia](https://github.com/bonigarcia/bonigarcia.github.io) is used.
 
 * Option 1: Start with Maven
 
-  `mvn clean verify -Dbrowser=chrome -DbaseUrl="https://www.wikipedia.org" -Ddriver.version=107`
+  `mvn clean verify -Dbrowser=chrome -DbaseURL="https://www.wikipedia.org" -Ddriver.version=107`
 
 * Option 2: Start directly from IDEA with a runConfiguration
   ![idea run configuration](docs/images/idea_runConfig.png)
@@ -37,7 +37,7 @@ In both cases you need to define some parameters to get the tests running:
 
 | Name | Description                                                                                                                                   |
 |------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| baseUrl* | The base URL for your website under test.                                                                                                     |
+| baseURL* | The base URL for your website under test.                                                                                                     |
 | browser | Choose the browser type. Allowed values are defined in DriverTypes Class. default = chrome                                |
 | browser.version | If you do not want to use the latest browser version, which is provided by the Webdriver manager, you can set the version with this parameter. |
 | selenium.grid | URL of Selenium grid server or a service which implements the Selenium grid protocol like Selenoid or Appium.                                 |
@@ -54,7 +54,7 @@ Example runtime parameters:
 
     -Dbrowser=chrome
     -Dbrowser.version=106.0
-    -DbaseUrl="http://www.wikipedia.at"
+    -DbaseURL="http://www.wikipedia.org"
 
 # Scenarios
 
@@ -112,7 +112,7 @@ Example of a runtime configuration for an emulated Pixel 2 with a desktop Chrome
     -Dbrowser=chrome_mobile_emulation
     -Dbrowser.version=75.0
     -Ddriver.version=75
-    -DbaseUrl="http://www.wikipedia.at"
+    -DbaseURL="http://www.wikipedia.org"
     -Demulated.device="Pixel 2"
 
 ### Android device (via Appium)
@@ -129,7 +129,7 @@ Example of runtime configuration for running a test on a emulated Android device
 4723):
 
         -Dbrowser=appium_android_device
-        -DbaseUrl="http://www.wikipedia.at"
+        -DbaseURL="http://www.wikipedia.org"
         -Dselenium.grid=http://localhost:4723
         -Ddriver.version=2.34
         -Ddevice.id="emulator-5554"
