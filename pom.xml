@@ -5,7 +5,7 @@
 
     <groupId>io.secugrow</groupId>
     <artifactId>secugrow-java-archetype</artifactId>
-    <version>1.9.1-SNAPSHOT</version>
+    <version>1.9.1</version>
     <packaging>maven-archetype</packaging>
 
     <name>secugrow-java-archetype</name>
