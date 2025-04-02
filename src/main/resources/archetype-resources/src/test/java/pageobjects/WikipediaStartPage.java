@@ -15,11 +15,11 @@ public class WikipediaStartPage extends MainPage {
     }
 
     public WebElement getSearchbar() {
-        return getWebDriverWait().until(ExpectedConditions.presenceOfElementLocated(By.id("txtSearch")));
+        return getWebDriverWait().until(ExpectedConditions.presenceOfElementLocated(By.id("searchInput")));
     }
 
     public WikiPediaSearchresultPage submitSearch() {
-        getWebDriverWait().until(ExpectedConditions.elementToBeClickable(By.id("cmdSearch"))).click();
+        getWebDriverWait().until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']"))).click();
         return new WikiPediaSearchresultPage(session);
     }
 

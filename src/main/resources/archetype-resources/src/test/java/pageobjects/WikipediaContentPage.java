@@ -5,6 +5,7 @@ package ${package}.pageobjects;
 
 import ${package}.webdriversession.WebDriverSession;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WikipediaContentPage extends MainPage{
 
@@ -13,6 +14,6 @@ public class WikipediaContentPage extends MainPage{
     }
 
     public String getHeader() {
-        return getWebDriver().findElement(By.id("firstHeading")).getText();
+        return getWebDriverWait().until(ExpectedConditions.visibilityOfElementLocated(By.id("firstHeading"))).getText();
     }
 }

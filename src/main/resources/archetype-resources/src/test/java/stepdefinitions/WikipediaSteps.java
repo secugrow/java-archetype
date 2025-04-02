@@ -28,7 +28,7 @@ public class WikipediaSteps extends AbstractStepDefs {
         });
 
         Then("the searchbar is visible", () -> {
-            WebElement searchbar = new WebDriverWait(getCurrentWebDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(By.id("txtSearch")));
+            WebElement searchbar = getPage(WikipediaStartPage.class).getSearchbar();
             assertTrue(searchbar.isEnabled());
         });
 
