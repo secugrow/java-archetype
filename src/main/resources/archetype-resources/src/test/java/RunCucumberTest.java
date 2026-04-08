@@ -3,12 +3,13 @@
 #set( $symbol_escape = '\' )
 package ${package};
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+import org.junit.platform.suite.api.IncludeEngines;
+import org.junit.platform.suite.api.SelectClasspathResource;
+import org.junit.platform.suite.api.Suite;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty"})
+@Suite
+@IncludeEngines("cucumber")
+@SelectClasspathResource("features")
 public class RunCucumberTest {
-
+    // Leave empty
 }

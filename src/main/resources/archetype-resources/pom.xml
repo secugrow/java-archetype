@@ -9,14 +9,16 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <selenium-java.version>4.30.0</selenium-java.version>
-    <cucumber.version>7.21.1</cucumber.version>
+    <selenium-java.version>4.41.0</selenium-java.version>
+    <cucumber.version>7.34.3</cucumber.version>
     <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
-    <logback.version>1.5.16</logback.version>
-    <java.version>20</java.version>
-    <axe-core.version>4.10.1</axe-core.version>
-    <assertj.version>3.23.1</assertj.version>
-    <appium.version>9.4.0</appium.version>
+    <logback.version>1.5.18</logback.version>
+    <slf4j.version>2.0.17</slf4j.version>
+    <java.version>23</java.version>
+    <axe-core.version>4.11.1</axe-core.version>
+    <assertj.version>3.27.7</assertj.version>
+    <appium.version>10.1.0</appium.version>
+    <junit.platform.version>1.14.2</junit.platform.version>
   </properties>
 
   <dependencies>
@@ -34,8 +36,27 @@
     </dependency>
     <dependency>
       <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-junit</artifactId>
+      <artifactId>cucumber-junit-platform-engine</artifactId>
       <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- JUnit 5 Suite API + Engine -->
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-suite-api</artifactId>
+      <version>${junit.platform.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-suite-engine</artifactId>
+      <version>${junit.platform.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-commons</artifactId>
+      <version>${junit.platform.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -70,6 +91,16 @@
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>${logback.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.imgscalr</groupId>
+      <artifactId>imgscalr-lib</artifactId>
+      <version>4.2</version>
     </dependency>
     <dependency>
       <groupId>io.appium</groupId>

@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Locale;
 
-import static org.junit.Assert.fail;
+import static org.assertj.core.api.Fail.fail;
 
 public class DriverFactory {
 
@@ -24,16 +24,21 @@ public class DriverFactory {
             case CHROME:
                 webDriver = new ChromeDriverFactory().createDriver();
                 break;
+            case CHROMIUM:
+                fail("not implemented yet");
+                break;
             case CHROME_MOBILE_EMULATION:
+            case LOCAL_CHROME_MOBILE_EMULATION:
                 webDriver = new ChromeDriverMobileEmulationFactory().createDriver();
+                break;
+            case REMOTE_CHROME_MOBILE:
+            case REMOTE_CHROME_MOBILE_EMULATION:
+                fail("not implemented yet");
                 break;
             case FIREFOX:
                 webDriver = new FirefoxWebDriverFactory().createDriver();
                 break;
             case EDGE:
-                fail("not implemented yet");
-                break;
-            case IE:
                 fail("not implemented yet");
                 break;
             case REMOTE_CHROME:
