@@ -37,7 +37,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/secugrow/java-archetype.git</connection>
-        <developerConnection>scm:git:ssh://github.com/secugrow/java-archetype.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:secugrow/java-archetype.git</developerConnection>
         <url>https://github.com/secugrow/java-archetype/tree/main</url>
     </scm>
 
