@@ -19,7 +19,7 @@ import static org.assertj.core.api.Fail.fail;
 public class TestDataContainer {
 
     public enum Keys {
-        BASEURL("baseURL"),
+        BASEURL("baseUrl"),
         TEST_ID("testId"),
         SCREENSHOTS("screenshots"),
         LOCALRUN("localRun"),

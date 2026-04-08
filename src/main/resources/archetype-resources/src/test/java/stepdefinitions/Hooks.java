@@ -51,7 +51,7 @@ public class Hooks {
         int debuglength = 80;
         String fillchar = "${symbol_pound}";
 
-        testDataContainer.setTestDataString(Keys.BASEURL, System.getProperty(Keys.BASEURL.getKeyValue(), "baseURL is not set, please add to your commandline '-DbaseURL=yourvalue or add to your runConfiguration"));
+        testDataContainer.setTestDataString(Keys.BASEURL, System.getProperty(Keys.BASEURL.getKeyValue(), "baseUrl is not set, please add to your commandline '-DbaseUrl=yourvalue or add to your runConfiguration"));
         testDataContainer.setScenario(scenario);
         testDataContainer.setTestDataBrowserType(DriverType.valueOf(System.getProperty("browser", "no browser set").toUpperCase()));
         testDataContainer.setTestDataString("browser.version", System.getProperty("browser.version", "no version set"));
