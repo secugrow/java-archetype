@@ -4,14 +4,12 @@ If you want to start as fast as possible with [Selenium](https://github.com/Sele
 with [Cucumber](https://github.com/cucumber/cucumber) - here's your place to be. Just clone this repo and start it. It
 contains executable minimalistic examples so you can create your own scenarios easily and fast.
 
-You should be familiar with Java (or Kotlin (see kotlin-archetype)) and Cucumber to create new scenarios and
+You should be familiar with [Kotlin](https://kotlinlang.org/) (or Java) and Cucumber to create new scenarios and
 corresponding glue code.
 
-This is a skeleton based on Selenium, Cucumber with Java and parallel-execution support with JUnit 5.
+This is a skeleton based on Selenium, Cucumber with Kotlin and parallel-execution support with JUnit 5.
 Also, [Cucumber Picocontainers](https://github.com/cucumber/cucumber-jvm/tree/master/picocontainer) were added for a
 smooth usage of test data among all steps.
-For a quick and easy setup of Webdriver, [WebDriverManager](https://github.com/bonigarcia/webdrivermanager)
-from [Boni Garcia](https://github.com/bonigarcia/bonigarcia.github.io) is used.
 
 ## Prerequisites
 
@@ -27,17 +25,17 @@ from [Boni Garcia](https://github.com/bonigarcia/bonigarcia.github.io) is used.
 
 * Option 1: Start with Maven
 
-  `mvn clean verify -Dbrowser=chrome -DbaseURL="https://www.wikipedia.org" -Ddriver.version=107`
+  `mvn test -Dbrowser=chrome -Dheadless=true -DbaseUrl="https://www.wikipedia.org" -Dcucumber.filter.tags=@all`
 
 * Option 2: Start directly from IDEA with a runConfiguration
-  ![idea run configuration](docs/images/idea_runConfig.png)
+  ![idea run configuration](src/test/resources/docs/idea_runConfig.png)
   Use the runConfiguration File which is located in the resources-folder and adapt the parameter for your need
 
 In both cases you need to define some parameters to get the tests running:
 
 | Name            | Description                                                                                                                                    |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| baseURL*        | The base URL for your website under test.                                                                                                      |
+| baseUrl*        | The base URL for your website under test.                                                                                                      |
 | browser         | Choose the browser type. Allowed values are defined in DriverTypes Class. default = chrome                                                     |
 | browser.version | If you do not want to use the latest browser version, which is provided by the Webdriver manager, you can set the version with this parameter. |
 | selenium.grid   | URL of Selenium grid server or a service which implements the Selenium grid protocol like Selenoid or Appium.                                  |
@@ -53,8 +51,14 @@ In both cases you need to define some parameters to get the tests running:
 Example runtime parameters:
 
     -Dbrowser=chrome
-    -Dbrowser.version=106.0
-    -DbaseURL="http://www.wikipedia.org"
+    -DbaseUrl="http://www.wikipedia.org"
+
+If you need to pass additional capabilites for your environment (selenoid, selenium grid or a cloud provider of your choice)
+you can name the provider with:
+
+    -Dremote.options=selenoid
+
+Add the corresponding options to RemoteWebDriverFactory.kt
 
 # Scenarios
 
@@ -83,10 +87,10 @@ Jenkins Cucumber report mark a scenario or step as failed.
 Scenarios have a unique ID which you have to assign manually and keep track of. If a scenario fails, you can easily jump
 to the step definitions via text search in your IDE.
 
-//TODO (add here screenshots from jenkins)
+<img src="src/test/resources/docs/testresults_idea.png" alt="Testresults in IntelliJ" width="50%">
 
-![testresults from IntelliJ](docs/images/testresults_idea.png)
-
+![testresults jenkins overview](src/test/resources/docs/jenkins_overall.png)
+![testresults jenkins feature](src/test/resources/docs/jenkins_feature.png)
 #Supported Browser in DriverType enum
 Setup will be done via WebDriverManager as mentioned above.
 
@@ -112,16 +116,14 @@ at [Aerokube Website](https://aerokube.com)
 Example of a runtime configuration for an emulated Pixel 2 with a desktop Chrome browser:
 
     -Dbrowser=chrome_mobile_emulation
-    -Dbrowser.version=75.0
-    -Ddriver.version=75
-    -DbaseURL="http://www.wikipedia.org"
+    -DbaseUrl="http://www.wikipedia.org"
     -Demulated.device="Pixel 2"
 
 ### Android device (via Appium)
 
 You can use an emulated device (AVD Manager) or a connected real device, which both have to be supported by Appium.
 
-    boris@xps13:~/Android/Sdk/platform-tools$ ./adb devices
+    boris:~/Android/Sdk/platform-tools$ ./adb devices
     List of devices attached
     emulator-5554	device
 
@@ -131,9 +133,8 @@ Example of runtime configuration for running a test on a emulated Android device
 4723):
 
         -Dbrowser=appium_android_device
-        -DbaseURL="http://www.wikipedia.org"
+        -DbaseUrl="http://www.wikipedia.org"
         -Dselenium.grid=http://localhost:4723
-        -Ddriver.version=2.34
         -Ddevice.id="emulator-5554"
 
 # Troubleshooting

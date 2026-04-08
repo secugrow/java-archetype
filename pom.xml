@@ -37,13 +37,13 @@
 
     <scm>
         <connection>scm:git:git://github.com/secugrow/java-archetype.git</connection>
-        <developerConnection>scm:git:ssh://github.com/secugrow/java-archetype.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:secugrow/java-archetype.git</developerConnection>
         <url>https://github.com/secugrow/java-archetype/tree/main</url>
     </scm>
 
     <properties>
-        <maven.compiler.source>20</maven.compiler.source>
-        <maven.compiler.target>20</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <archetype-packaging.version>3.2.0</archetype-packaging.version>
     </properties>
 
